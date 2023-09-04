@@ -393,10 +393,16 @@
           </div>
 
           <div class="col-lg-6">
-            <form action="#" method="post" role="form" class="php-email-form">
+            <!-- ALERT PESAN -->
+            <div class="alert alert-success alert-dismissible fade show d-none my-alert" role="alert">
+              <strong>Terima Kasih</strong> Pesan anda sudah terkirim.
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+
+            <form action="#" method="post" role="form" class="san-form" name="san-contact-form">
               <div class="row">
                 <div class="col-md-6 form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Nama Lengkap" required>
+                  <input type="text" name="nama" class="form-control" id="nama" placeholder="Nama Lengkap" required>
                 </div>
                 <div class="col-md-6 form-group mt-3 mt-md-0">
                   <input type="email" class="form-control" name="email" id="email" placeholder="Email" required>
@@ -406,14 +412,18 @@
                 <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
               </div>
               <div class="form-group mt-3">
-                <textarea class="form-control" name="message" rows="6" placeholder="Pesan" required></textarea>
+                <textarea class="form-control" name="pesan" rows="6" placeholder="Pesan" required></textarea>
               </div>
-              <div class="my-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
+              <div class="text-center">
+                <button class="btn-kirim" type="submit">Kirim</button>
+                
+                <button class="btn-primary btn-loading d-none" type="button" disabled>
+                  <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+                  <span role="status">Loading...</span>
+                </button>
               </div>
-              <div class="text-center"><button type="submit">Kirim Masukan</button></div>
+
+
             </form>
           </div>
 
@@ -461,6 +471,36 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+  
+  <script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbyiNmdkwHJ2yzlxkdoVYalGGxokwZt67QX1Dq_9nW2-CJ-SVtl3ITMoRb7iEEO2Wjyc/exec'
+    const form = document.forms['san-contact-form'];
+    const btnKirim = document.querySelector('.btn-kirim');
+    const btnLoading = document.querySelector('.btn-loading');
+    const myAlert = document.querySelector('.my-alert');
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      //ketika tombol sumbit diklik
+      //tampilkan loading
+      btnLoading.classList.toggle('d-none');
+      btnKirim.classList.toggle('d-none');
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {
+          //tampilkan kirim
+          btnLoading.classList.toggle('d-none');
+          btnKirim.classList.toggle('d-none');
+          // tampikan alert
+          myAlert.classList.toggle('d-none');
+          // reset form
+          form.reset();
+          console.log('Success!', response)
+        })
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
+
+
 
 </body>
 

@@ -488,19 +488,58 @@ p {
 /*--------------------------------------------------------------
 # Hero
 --------------------------------------------------------------*/
-.hero {
+#hero {
   width: 100%;
-  min-height: 30vh;
-  background: #151616;
+  height: 100vh;
+  padding: 300px 0 300px 0;
+  background: url("../img/hero-bg.jpg") top right no-repeat;
   background-size: cover;
   position: relative;
-  padding: 300px 0 300px 0;
+  font-family: "Playfair Display", serif;
+}
+
+#hero:before {
+  content: "";
+  background: rgba(0, 0, 0, 0.100);
+  position: relative;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+#hero h1 {
+  margin: 0;
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 56px;
+  color: #ffffff;
+}
+
+#hero .social-links {
+  margin-top: 30px;
+}
+
+#hero .social-links a {
+  font-size: 24px;
+  display: inline-block;
+  color: #ffffff;
+  line-height: 1;
+  margin-right: 20px;
+  transition: 0.3s;
+}
+
+@media (max-width: 992px) {
+  #hero {
+    text-align: center;
+    padding-left: 160px;
+  }
 }
 
 .hero h2 {
   margin: 0 0 10px 0;
-  font-size: 38px;
-  font-weight: 700;
+  font-size: 30px;
+  font-weight: 500;
   color: #f8f8f8;
   font-family: var(--font-secondary);
 }
@@ -523,18 +562,11 @@ p {
   z-index: -1;
 }
 
-.hero p {
-  color: rgba(255, 255, 255, 0.6);
-  margin-bottom: 30px;
-  font-size: 18px;
-}
-
 @media (max-width: 768px) {
   .hero h2 {
     font-size: 32px;
   }
 }
-
 
 
 /*-----------------------------------------------------------------------------------*/
@@ -832,64 +864,7 @@ p {
 }
 
 /*--------------------------------------------------------------
-# Journal
---------------------------------------------------------------*/
-#journal,
-#journal-blog {
-  height: auto;
-  width: 100%;
-  background: #f7f7f7;
-  padding-bottom: 60px;
-  position: relative;
-}
-
-#journal-blog {
-  background: #f8f8f8;
-  padding-bottom: 30px;
-}
-
-#journal .journal-block {
-  display: inline-block;
-  height: auto;
-  width: 100%;
-}
-
-#journal .journal-block .journal-info {
-  position: relative;
-}
-
-.journal-block .journal-info img {
-  max-width: 100%;
-}
-
-.journal-block .journal-info .journal-txt {
-  padding: 25px 0px;
-  position: relative;
-}
-
-.journal-block .journal-info .journal-txt h4 a {
-  display: block;
-  font-size: 19px;
-  line-height: 24px;
-  margin: 0 0 13px 0;
-  font-weight: 500;
-  color: #292929;
-  transition: all 0.5s ease-in-out 0s;
-}
-
-.journal-block .journal-info .journal-txt h4 a:hover {
-  color: #b8a07e;
-  transition: all 0.5s ease-in-out 0s;
-}
-
-.journal-block .journal-info .journal-txt p {
-  margin: 0;
-  font-size: 14px;
-  line-height: 24px;
-}
-
-/*--------------------------------------------------------------
-# Journal
+# Background Contact Me
 --------------------------------------------------------------*/
 #contact {
   height: auto;
@@ -917,21 +892,11 @@ p {
   min-height: 160px;
 }
 
-.php-email-form .error-message {
-  display: none;
-  color: #f8f8f8;
-  background: #ed3c0d;
-  text-align: left;
-  padding: 15px;
-  margin-bottom: 15px;
-  font-weight: 600;
-}
-
-.php-email-form .error-message br+br {
+.san-form .error-message br+br {
   margin-top: 25px;
 }
 
-.php-email-form .sent-message {
+.san-form .sent-message {
   display: none;
   color: #f8f8f8;
   background: #18d26e;
@@ -941,7 +906,7 @@ p {
   margin-bottom: 15px;
 }
 
-.php-email-form .loading {
+.san-form .loading {
   display: none;
   background: #f8f8f8;
   text-align: center;
@@ -949,7 +914,7 @@ p {
   margin-bottom: 15px;
 }
 
-.php-email-form .loading:before {
+.san-form .loading:before {
   content: "";
   display: inline-block;
   border-radius: 50%;
@@ -1030,82 +995,33 @@ p {
   background: #27a776;
 }
 
-.contact .php-email-form {
+.contact .san-form {
   box-shadow: 0 0 30px rgba(214, 215, 216, 0.6);
   padding: 27px;
 
 }
 
-.contact .php-email-form .validate {
-  display: none;
-  color: red;
-  margin: 0 0 15px 0;
-  font-weight: 400;
-  font-size: 13px;
-}
-
-.contact .php-email-form .error-message {
-  display: none;
-  color: #f8f8f8;
-  background: #ed3c0d;
-  text-align: left;
-  padding: 15px;
-  font-weight: 600;
-}
-
-.contact .php-email-form .error-message br+br {
-  margin-top: 25px;
-}
-
-.contact .php-email-form .sent-message {
-  display: none;
-  color: #f8f8f8;
-  background: #18d26e;
-  text-align: center;
-  padding: 15px;
-  font-weight: 600;
-}
-
-.contact .php-email-form .loading {
-  display: none;
-  background: #f8f8f8;
-  text-align: center;
-  padding: 15px;
-}
-
-.contact .php-email-form .loading:before {
-  content: "";
-  display: inline-block;
-  border-radius: 50%;
-  width: 24px;
-  height: 24px;
-  margin: 0 10px -6px 0;
-  border: 3px solid #18d26e;
-  border-top-color: #eee;
-  animation: animate-loading 1s linear infinite;
-}
-
-.contact .php-email-form input,
-.contact .php-email-form textarea {
+.contact .san-form input,
+.contact .san-form textarea {
   border-radius: 0;
   box-shadow: none;
   font-size: 14px;
 }
 
-.contact .php-email-form input::focus,
-.contact .php-email-form textarea::focus {
+.contact .san-form input::focus,
+.contact .san-form textarea::focus {
   background-color: #27a776;
 }
 
-.contact .php-email-form input {
+.contact .san-form input {
   padding: 10px 15px;
 }
 
-.contact .php-email-form textarea {
+.contact .san-form textarea {
   padding: 12px 15px;
 }
 
-.contact .php-email-form button[type=submit] {
+.contact .san-form button[type=submit] {
   background: #27a776;
   border: 0;
   padding: 10px 24px;
@@ -1114,7 +1030,20 @@ p {
   border-radius: 5px;
 }
 
-.contact .php-email-form button[type=submit]:hover {
+.contact .san-form button[type=submit]:hover {
+  background: #176447;
+}
+
+.contact .san-form button[type=button] {
+  background: #27a776;
+  border: 0;
+  padding: 10px 24px;
+  color: #f8f8f8;
+  transition: 0.4s;
+  border-radius: 5px;
+}
+
+.contact .san-form button[type=button]:hover {
   background: #176447;
 }
 
@@ -1858,74 +1787,3 @@ blockquote {
 # Preloader FINISH
 --------------------------------------------------------------*/
 
-/*-------------------------------------------------------------
-# Hero Section
---------------------------------------------------------------*/
-#hero {
-  width: 100%;
-  height: 100vh;
-  background: url("../img/hero-bg.jpg") top right no-repeat;
-  background-size: cover;
-  position: relative;
-}
-
-@media (min-width: 992px) {
-  #hero {
-    padding-left: 160px;
-  }
-}
-
-#hero:before {
-  content: "";
-  background: rgba(0, 0, 0, 0.100);
-  position: relative;
-  bottom: 0;
-  top: 0;
-  left: 0;
-  right: 0;
-}
-
-#hero h1 {
-  margin: 0;
-  font-size: 50px;
-  font-weight: 700;
-  line-height: 56px;
-  color: #ffffff;
-}
-
-#hero p {
-  color: #ffffff;
-  margin: 15px 0 0 0;
-  font-size: 26px;
-  font-family: "Poppins", sans-serif;
-}
-
-#hero .social-links {
-  margin-top: 30px;
-}
-
-#hero .social-links a {
-  font-size: 24px;
-  display: inline-block;
-  color: #ffffff;
-  line-height: 1;
-  margin-right: 20px;
-  transition: 0.3s;
-}
-
-@media (max-width: 992px) {
-  #hero {
-    text-align: center;
-  }
-
-  #hero h1 {
-    font-size: 32px;
-    line-height: 36px;
-  }
-
-  #hero p {
-    margin-top: 10px;
-    font-size: 20px;
-    line-height: 24px;
-  }
-}
