@@ -389,7 +389,7 @@ p {
 }
 
 .mobile-nav-toggle.bi-x {
-  color: #f8f8f8;
+  color: #fff;
 }
 
 @media (max-width: 991px) {
@@ -428,7 +428,7 @@ p {
   left: 15px;
   padding: 10px 0;
   border-radius: 10px;
-  background-color: #f8f8f8;
+  background-color: #fff;
   overflow-y: auto;
   transition: 0.3s;
 }
@@ -459,7 +459,7 @@ p {
   z-index: 99;
   opacity: 1;
   visibility: visible;
-  background: #f8f8f8;
+  background: #fff;
   box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
 }
 
@@ -484,6 +484,7 @@ p {
 .navbar-mobile .dropdown>.dropdown-active {
   display: block;
 }
+
 
 /*--------------------------------------------------------------
 # Hero
