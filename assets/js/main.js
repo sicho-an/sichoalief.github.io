@@ -242,6 +242,9 @@
         portfolioIsotope.arrange({
           filter: this.getAttribute('data-filter')
         });
+        portfolioIsotope.on('arrangeComplete', function() {
+          AOS.refresh()
+        });
 
       }, true);
     }
@@ -280,8 +283,30 @@
       mirror: false
     });
   }
+
+  $(window).on('load', function() {          
+    AOS.refreshHard();
+  }); 
+  
   window.addEventListener('load', () => {
     aos_init();
   });
+
+    /**
+   * Animation on scroll
+   */
+    window.addEventListener('load', () => {
+      AOS.init({
+        duration: 1000,
+        easing: "ease-in-out",
+        once: true,
+        mirror: false
+      });
+    });
+  
+    /**
+     * Initiate Pure Counter 
+     */
+    new PureCounter();
 
 })()
