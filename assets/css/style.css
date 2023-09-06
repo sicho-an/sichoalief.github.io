@@ -231,6 +231,7 @@ p {
 }
 
 @media (max-width: 575px) {
+
   .header .logo h1 {
     font-size: 26px;
   }
